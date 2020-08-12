@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非常漂亮的网站</title>
+    <link rel="stylesheet" href="./fa/css/all.min.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <style>
+
+        /* 设置最上端容器样式 */
+        .header{
+            height: 1000px;
+            width: 100%;
+            background: url("./img/headbackground.jpg") no-repeat;
+            background-size: 100% 100%;
+            opacity: 0.8;
+            color: white;
+            padding-top: 180px;
+        }
+
+        /* 设置文本样式 */
+        .header h1{
+            font-size: 68px;
+        }
+        .header>p{
+            color: rgb(185,182,177);
+            margin-top: 100px;
+        }
+        
+        /* 设置建立账户外部容器样式 */
+        .signup{
+            height: 250px;
+            margin-top: 100px;
+            border: 1px solid rgb(87,84,75);
+        }
+        .signup p{
+            color: rgb(200, 199, 195);
+        }
+        /* 设置输入框样式 */
+        .signup input{
+            margin-top: 35px;
+            width: 290px;
+            height: 50px;
+            background-color: transparent;
+            color: white;
+            margin-right: 33px;
+            border: 1px solid rgb(85,82,77);
+            font-size: 20px;
+            padding-left: 20px;
+        }
+        .signup button{
+            width: 125px;
+            height: 50px;
+            background-color: white;
+        }
+        #PWD{
+            color: rgb(200, 199, 195);
+        }
+
+        /* 设置文字样式 */
+        .awesome{
+            margin-top: 100px;
+            opacity: 0.6;
+        }
+        .awesome p{
+            font-size: 45px;
+        }
+
+        /* 设置列表左侧浮动 */
+        .seclist{
+            list-style: none;
+            float: left;
+            margin-top: 30px;
+        }
+        /* 设置图标和文字左侧浮动保证在一行 */
+        .seclist div{
+            float: left;
+        }
+
+        /* 设置列表容器宽度，保证视窗缩小时格式不会变 */
+        .sections{
+            width: 1120px;
+            margin: 0 auto;
+        }
+        .seclist i{
+            font-size: 40px;
+            margin-right: 24px;
+            margin-left: 100px;
+            margin-top: 20px;
+        }
+
+        /* 设置图片环绕效果 */
+        .imginfo{
+            width: 1040px;
+            margin: 0 auto;
+            margin-bottom: 100px;
+        }
+        .imginfo img{
+            width: 560px;
+            margin-top: 100px;
+        }
+        .imginfo p{
+            line-height: 30px;
+        }
+        .left{
+            float: left;
+            margin-right: 150px;
+        }
+        .right{
+            float: right;
+            margin-left: 150px;
+        }
+        .imgdesc{
+            width: 320px;
+            display: inline-block;
+            margin-top: 180px;
+        }
+
+        /* 设置容器样式 */
+        .crew{
+            width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            /* background-color: red; */
+        }
+        .crew ul{
+            padding: 0;
+        }
+
+        /* 设置单个图片容器样式 */
+        .crew li{
+            position: relative;
+            width: calc((100% - 30px)/2);
+            /* height: 340px; */
+            text-decoration: none;
+            float: left;
+            margin-bottom: 30px;
+        }
+
+        .crew li:nth-child(2n+1){
+            margin-right: 30px;
+        }
+        
+        /* 设置文本样式 */
+        .crew h2{
+            color: black;
+            margin-top: 100px;
+        }
+        .crew p{
+            color: rgb(157,157,157);
+            margin-bottom: 30px;
+        }
+        /* 设置图片铺满li容器 */
+        .crew img{
+            width: 100%;
+            height: 100%;
+        }
+        /* 设置灰色背景样式 */
+        .crew .tchinfo{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /* top: -300px; */
+            top: 0px;
+            display: none;
+        }
+        .tchinfo h2{
+            color: white;
+        }
+        /* 设置图片上文本样式 */
+        .crew .background{
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.6;
+            position: absolute;
+            /* top: -300px; */
+            top: 0px;
+            display: none;
+        }
+        /* 设置鼠标移入效果 */
+        .crew a:hover >.tchinfo,
+        .crew a:hover >.background{
+            display: block;
+        }
+        /* 设置圆形边框样式 */
+        .crew .facebook{
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgb(114,104,94);
+            border-radius: 25px;
+            float: left;
+            margin-right: 30px;
+        }
+        .first{
+            margin-left: 130px;
+        }
+        /* 设置facebook、Twitter、camera样式 */
+        .facebook i{
+            background-color: transparent;
+            color: white;
+            font-size: 20px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header textcenter">
+        <h1>Hello My dear!</h1>
+        <p>You're insecure <br>
+        　　Don't know what for <br>
+        　　You're turning heads when you walk through the do-o-or <br>
+        　　Don't need makeup <br>
+        　　To cover up <br>
+        　　Being the way that you are is en-o-ough <br>
+        　　Everyone else in the room can see it <br>
+        　　Everyone else but you
+        </p>
+        <div class="signup width textcenter">
+            <h2>Creat your account</h2>
+            <p>IT IS ABSOLUTE FREE</p>
+            <input type="text" name="username" id="NAME" value="abc@email.com">
+            <input type="password" name="passwd" id="PWD" placeholder="creat you passwd">
+            <button type="submit">SIGN UP</button>
+        </div>
+    </div>
+    <div class="body1">
+        <div class="awesome textcenter">
+            <h2>BOATSLOAD OF AWESOME</h2>
+
+            <p>Ready-made, customizable, HTML<br>landing page sections</p>
+        </div>
+        <ul class="sections clearfix">
+            <li class="seclist">
+                <div>
+                    <i  class="listicon fas fa-mobile-alt"></i>
+                </div>
+                <div>
+                    <h2>Mobile First</h2>
+                    <p>All modulz are built mobile-first for maximum<br>
+                        device compatibility</p>
+                </div>
+                
+                
+            </li>
+            <li class="seclist">
+                <div>
+                    <i  class="listicon fas fa-mobile-alt"></i>
+                </div>
+                <div>
+                    <h2>Mobile First</h2>
+                    <p>All modulz are built mobile-first for maximum<br>
+                        device compatibility</p>
+                </div>
+                
+                
+            </li>
+            <li class="seclist">
+                <div>
+                    <i  class="listicon fas fa-mobile-alt"></i>
+                </div>
+                <div>
+                    <h2>Mobile First</h2>
+                    <p>All modulz are built mobile-first for maximum<br>
+                        device compatibility</p>
+                </div>
+                
+                
+            </li>
+            <li class="seclist">
+                <div>
+                    <i  class="listicon fas fa-mobile-alt"></i>
+                </div>
+                <div>
+                    <h2>Mobile First</h2>
+                    <p>All modulz are built mobile-first for maximum<br>
+                        device compatibility</p>
+                </div>
+                
+                
+            </li>
+        </div>
+    </div>
+
+    <ul class="imginfo clearfix">
+        <li>
+            <img class="left" src="./img/sun.jpg" alt="">
+            <div class="imgdesc">
+                <h3>Learn How to Improve Your Personal Business</h3>
+                <p>Li Jun, a CHINA Academy of Engineering academician and also director of the allianes.Li Jun, 
+                    a CHINA Academy of Engineering academician and also director of the 
+                    allianes.academician and also director of the allianes</p>
+            </div>
+            <img class="right" src="./img/moutain.jpg" alt="">
+            <div class="imgdesc">
+                <h3>Learn How to Improve Your Personal Business</h3>
+                <p>Li Jun, a CHINA Academy of Engineering academician and also director of the allianes.Li Jun, 
+                    a CHINA Academy of Engineering academician and also director of the 
+                    allianes.academician and also director of the allianes</p>
+            </div>
+        </li>
+    </ul>
+    <hr>
+    <div class="crew">
+        <h2>Our Awesome Crew</h2>
+        <p>Our unique online teaching style makes learning easy for everyone.Whether you<br>
+            are trying to land a new job.brush up on your skills</p>
+        <ul class="clearfix">
+            <li id="songjia">
+                <a href="javascript:;">
+                    <img src="./img/songjia.jpg" alt="">
+                    <div class="background"></div>
+                    <div class="tchinfo clearfix">
+                        <h2>Song Jia</h2>
+                        <p>Beautiful Actress</p>
+                        <div class="facebook first">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="facebook">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="facebook">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./img/songjia.jpg" alt="">
+                    <div class="background"></div>
+                    <div class="tchinfo clearfix">
+                        <h2>Song Jia</h2>
+                        <p>Beautiful Actress</p>
+                        <div class="facebook first">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="facebook">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="facebook">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./img/songjia.jpg" alt="">
+                    <div class="background"></div>
+                    <div class="tchinfo clearfix">
+                        <h2>Song Jia</h2>
+                        <p>Beautiful Actress</p>
+                        <div class="facebook first">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="facebook">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="facebook">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./img/songjia.jpg" alt="">
+                    <div class="background"></div>
+                    <div class="tchinfo clearfix">
+                        <h2>Song Jia</h2>
+                        <p>Beautiful Actress</p>
+                        <div class="facebook first">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="facebook">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="facebook">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <hr>
+</body>
+</html>

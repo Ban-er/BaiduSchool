@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 设置容器内边距 */
+        #container {
+            padding-left: 200px;
+            padding-right: 150px;
+        }
+        /* 设置左侧浮动 */
+        .column {
+            float: left;
+        }
+        /* 中间内容区100%宽度 */
+        #center {
+            width: 100%;
+            background-color: moccasin;
+        }
+        /* 左侧宽度200px，左外边距-100%和-200px移动到center左侧 */
+        #left {
+            width: 200px;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+            background-color: orangered;
+        }
+        /* 宽度150px，做外边距-150px和-150px移动到center右侧 */
+        #right {
+            width: 150px;
+            margin-left: -150px;
+            position: relative;
+            right: -150px;
+            background-color: palegreen;
+        }
+        #footer {
+            clear: both;
+        }
+        /* 最小宽度为left + right + 相对定位的较大值（200px） */
+        body {
+            min-width: 550px;
+        }
+
+        /* 定义容器100%宽度 */
+        #container2 {
+            width: 100%;
+        }
+        .column2 {
+            float: left;
+        }
+        #center2 {
+            margin-left: 200px;
+            margin-right: 150px;
+            background-color: paleturquoise;
+        }
+        #left2 {
+            margin-left: -100%;
+            width: 200px;
+            background-color: peachpuff;
+        }
+        #right2 {
+            margin-left: -150px;
+            width: 150px;
+            background-color: rebeccapurple;
+        }
+        #footer2 {
+            clear: both;
+        }
+        .box2{
+            display: flex;
+        }
+        .shortcut{
+            height: 40px;
+            /* text-overflow: -o-ellipsis-lastline; */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* line-clamp: 2; */
+            -webkit-box-orient: vertical;
+            /* flex-grow: 1; */
+        }
+        .pp{
+            /* display: none    ; */
+            /* width: 10px; */
+            /* width: 100%; */
+            align-self: center;
+            padding: 0 10px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 30px;
+            text-align: center;
+            background-color: red;
+        }
+        .pp span{
+            display: inline-block;
+        }
+        .box3 {
+            height: 300px;
+            display: table;
+            vertical-align: middle;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">Header</div>
+    <div id="container">
+        <div id="center" class="column">中间</div>
+        <div id="left" class="column">左边</div>
+        <div id="right" class="column">右边</div>
+    </div>
+    <div id="footer">Footer</div>
+
+    <div id="header2">header2</div>
+    <div id="container2" class="column2">
+        <div id="center2">中间</div>
+    </div>
+    <div id="left2" class="column2">左边</div>
+    <div id="right2" class="column2">右边</div>
+    <div id="footer2">下边</div>
+
+    <div class="box2">
+        <div class="shortcut">Hooray! It's snowing! It's time to make a snowman.James runs out. He makes a big pile of snow. He puts a big snowball on top. He adds a scarf and a hat. He adds an orange for the nose. He adds coal for the eyes and buttons.In the evening, James opens the door. What does he see? The snowman is moving! James invites him in. The snowman has never been inside a house. He says hello to the cat. He plays with paper towels.A moment later, the snowman takes James's hand and goes out.They go up, up, up into the air! They are flying! What a wonderful night!The next morning, James jumps out of bed. He runs to the door.He wants to thank the snowman. But he's gone.</div>
+        <div class="pp">31</div>
+    </div>
+    <div class="box3">
+        alsjdf;lk
+    </div>
+</body>
+</html>

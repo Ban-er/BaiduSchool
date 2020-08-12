@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        .big-box{
+            display: flex;
+            width: 430px;
+            height: 330px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 20px;
+            border: 5px solid rgb(224,223,204);
+            background-color: rgb(35,35,35);
+        }
+        .small-box{
+            display: flex;
+            flex-basis: 100px;
+            margin: 20px;
+            height: 100px;
+            border-radius: 10px;
+            background-color: white;
+        }
+        .one{
+            align-items: center;
+            justify-content: space-around;
+        }
+        .two{
+            
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .two .little-block:last-of-type{
+            align-self: flex-end;
+        }
+
+        .three{
+            
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .three .little-block:nth-of-type(2){
+            align-self: center;
+        }
+        .three .little-block:nth-of-type(3){
+            align-self: flex-end;
+        }
+        .four{
+            
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .five{
+            justify-content: space-between;
+            align-items: center;
+        }
+        .six,
+        .nine{
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .column{
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .little-block{
+            margin: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: black;
+        }
+
+        .outer{
+            display: flex;
+            margin: 0 auto;
+            width: 500px;
+            border: 2px solid grey;
+            flex-direction: column;
+        }
+        .inner{
+            display: flex;
+        }
+        .item{
+            margin: 5px;
+            line-height: 40px;
+            background-color: rgb(244,243,240);
+            text-align: center;
+        }
+        .one-half{
+            flex: 0 0 50%;
+        }
+        .auto{
+            flex: 1;
+        }
+        .one-four{
+            flex: 0 0 25%;
+        }
+        .wrapper{
+            display: flex;
+            margin: 0 auto;
+            width: 800px;
+            border: 3px solid grey;
+            flex-direction: column;
+        }
+        .t-body{
+            display: flex;
+            height: 100px;
+            /*  */
+        }
+        header{
+            background-color: hotpink;
+        }
+        main{
+            background-color: khaki;
+        }
+        .wrapper main{
+            flex: 0 0 100px;
+            order: -1;
+        }
+        nav{
+            background-color: lightgreen;
+        }
+        .wrapper nav{
+            flex: 1;
+            background-color: lightgreen;
+        }
+        aside{
+            background-color: lime;
+        }
+        .wrapper aside{
+            flex: 0 0 80px;
+            background-color: lime;
+        }
+        footer{
+            background-color: mediumslateblue;
+        }
+        .inputbox{
+            display: flex;
+        }
+        .inputbox input{
+            flex: 1;
+        }
+
+        .box1 {
+            width: 800px;
+            margin: 0 auto;
+        }
+        .left {
+            float: left;
+        }
+        .f-body {
+            padding-left: 200px;
+            padding-right: 100px;
+        }
+        .f-body nav{
+            width: 100%;
+        }
+        .f-body main{
+            width: 200px;
+            position: relative;
+            margin-left: -100%;
+            left: -200px;
+        }
+        .f-body aside {
+            width: 100px;
+            position: relative;
+            margin-left: -100px;
+            right: -100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 骰子 -->
+    <div class="big-box">
+        <div class="small-box one">
+            <div class="little-block"></div>
+        </div>
+        <div class="small-box two">
+            <div class="little-block"></div>
+            <div class="little-block"></div>
+        </div>
+        <div class="small-box three">
+            <div class="little-block"></div>
+            <div class="little-block"></div>
+            <div class="little-block"></div>
+        </div>
+        <div class="small-box four">
+            <div class="column">
+                <div class="little-block"></div>
+                <div class="little-block"></div>
+            </div>
+            <div class="column">
+                <div class="little-block"></div>
+                <div class="little-block"></div>
+            </div>
+        </div>
+        <div class="small-box five">
+            <div class="column">
+                <div class="little-block"></div>
+                <div class="little-block"></div>
+            </div>
+            <div class="little-block"></div>
+            <div class="column">
+                <div class="little-block"></div>
+                <div class="little-block"></div>
+            </div>
+        </div>
+        <div class="small-box six">
+            <div class="column">
+                <div class="little-block"></div>
+                <div class="little-block"></div>
+                <div class="little-block"></div>
+            </div>
+            <div class="column">
+                <div class="little-block"></div>
+                <div class="little-block"></div>
+                <div class="little-block"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 网格布局 -->
+    <div class="outer">
+        <div class="inner">
+            <div class="item one-half">一半</div>
+            <div class="item auto">auto</div>
+            <div class="item auto">auto</div>
+            <div class="item auto">auto</div>
+        </div>
+        <div class="inner">
+            <div class="item one-third">四分之一</div>
+            <div class="item auto">auto</div>
+            <div class="item auto">auto</div>
+        </div>
+        <div class="inner">
+            <div class="item one-half">一半</div>
+            <div class="item auto">auto</div>
+            <div class="item auto">auto</div>
+        </div>
+    </div>
+    <!-- flex实现圣杯布局 -->
+    <div class="wrapper">
+        <header>
+            header
+        </header>
+        <div class="t-body">
+            
+            <nav>
+                nav
+            </nav>
+            <main>
+                main
+            </main>
+            <aside>
+                aside
+            </aside>
+        </div>
+        <footer>
+            footer
+        </footer>
+    </div>
+    <!-- 输入框 -->
+    <div class="inputbox">
+        <span>mess</span>
+        <input type="text" name="" id="">
+        <button>submit</button>
+    </div>
+    <!-- float实现圣杯布局 -->
+    <div class="box1">
+        <header>
+            header
+        </header>
+        <div class="f-body clearfix">
+            
+            <nav class="left">
+                nav 好长，麻烦把我全部显示出来，谢谢！！！真的很长
+            </nav>
+            <main class="left">
+                main
+            </main>
+            <aside class="left">
+                aside
+            </aside>
+        </div>
+        <footer>
+            footer
+        </footer>
+    </div>
+</body>
+</html>

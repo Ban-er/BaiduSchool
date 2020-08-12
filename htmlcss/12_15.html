@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12天</title>
+    <link rel="stylesheet" href="./fa/css/all.min.css">
+    <style>
+        .clearfix::after,
+        .clearfix::before{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body, html{
+            height: 100%;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        /* 设置左侧边栏样式 */
+        .sidebar{
+            width: 100px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            background-color: rgb(29,37,49);
+            /* float: left; */
+        }
+        /* 设置图标容器样式 */
+        .iconwrapper{
+            /* height: 100%; */
+            width: 60px;
+            margin: 0 auto;
+        }
+        /* 设置图标样式 */
+        .iconwrapper a{
+            /* 设置位置信息 */
+            box-sizing: border-box;
+            margin-top: 20px;
+            display: block;
+            /* 设置大小 */
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            /* 设置样式 */
+            border-radius: 50%;
+            text-align: center;
+            font-size: 25px;
+            color: white;
+        }
+        .iconwrapper a:last-child{
+            /* height: 54px; */
+            line-height: 54px;
+            border: 3px solid rgb(45,56,72);
+            color: rgb(45,56,72);
+        }
+        .firsticon{
+            background-color: rgb(43,159,246);
+        }
+        .secondicon{
+            background-color: rgb(151,132,228);
+        }
+        .thirdicon{
+            background-color: rgb(231,68,41);
+        }
+        /* 设置侧边栏foot图标样式 */
+        .sidebarfooter{
+            position: fixed;
+            bottom: 20px;
+            left: 25px;
+            color: rgb(71,83,100);
+        }
+        .sidebarfooter a{
+            color: rgb(73,85,103);
+        }
+        .sidebarfooter a:first-child{
+            margin-right: 15px;
+        }
+        /* 设置左侧菜单栏样式 */
+        .menubox{
+            position: fixed;
+            top: 0;
+            left: 100px;
+            width: 250px;
+            height: 100%;
+            background-color: rgb(34,44,60);
+            /* float: left; */
+        }
+        .menu{
+            margin: 20px;
+        }
+        /* 设置图标和菜单文字样式 */
+        .menu p,
+        .menu .menuicon{
+            color: rgb(73,85,103);
+        }
+        /* 设置图标靠右浮动 */
+        .menu .menuicon{
+            float: right;
+        }
+        /* 设置菜单列表样式 */
+        .menulist{
+            list-style: none;
+            color: rgb(183,192,205);
+        }
+        /* 设置菜单列表超链接样式 */
+        .menulist a{
+            text-decoration: none;
+            color: rgb(183,192,205);
+            line-height: 30px;
+            font-size: 15px;
+        }
+        /* 设置菜单选中高亮样式 */
+        .active a{
+            color: white;
+        }
+        /* 设置菜单列表容器ul的样式 */
+        .listbox{
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgb(64,85,103);
+        }
+        /* 设置sales数量样式 */
+        .listbox .salesnum{
+            float: right;
+            width: 30px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: rgb(40,157,245);
+            color: white;
+        }
+        /* 设置汇总栏样式 */
+        .menufooter{
+            position: fixed;
+            bottom: 10px;
+            left: 120px;
+            width: 210px;
+            color: white;
+        }
+        .menufooter span{
+            display: inline-block;
+            /* float: right; */
+        }
+        .menufooter .current,
+        .menufooter .total,
+        .menufooter .dilver{
+            float: right;
+        }
+        /* 设置完成度样式 */
+        #full{
+            margin-top: 3px;
+            width: 100%;
+            border-top: 2px solid rgb(45,56,72);
+            border-bottom: 2px solid rgb(45,56,72);
+        }
+        #finish{
+            position: absolute;
+            margin-top: -3px;
+            width: 20%;
+            border-top: 2px solid rgb(148,129,228);
+            border-bottom: 2px solid rgb(148,129,228);
+        }
+        /* 设置右侧容器样式 */
+        .message{
+            margin-left: 350px; 
+            width: calc(100% - 350px);
+            float: left;
+        }
+        /* 设置右侧标题栏容器样式 */
+        .contentwraper{
+            height: 150px;
+            width: calc(100% - 350px);
+            border-bottom: 1px solid rgb(230,233,236);
+            position: fixed;
+            top: 0;
+            left: 350px;
+            z-index: 1;
+            background-color: white;
+        }
+        /* 设置标题栏行高、自适应宽度、最小宽度样式 */
+        .header{
+            line-height: 80px;
+            width: 100%;
+            min-width: 450px;
+            border-bottom: 1px solid rgb(230,233,236);
+        }
+        /* 设置message样式 */
+        .header .title{
+            margin-left: 30px;
+            font-size: 25px;
+        }
+        /* 设置用户信息样式 */
+        .header div{
+            float: right;
+        }
+        /* 设置头像样式  */
+        .headimg{
+            margin-top: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-image: url(./img/songjiahead.jpg);
+            background-size: 50px;
+        }
+        /* 设置姓名角色容器样式 */
+        .header .info{
+            margin-top: 20px;
+            margin-left: 30px;
+            margin-right: 30px;
+            /* display: inline; */
+        }
+        .info p{
+            line-height: 20px;
+        }
+        /* 设置向下三角样式 */
+        #down{
+            margin-right: 20px;
+        }
+        /* 设置字体颜色 */
+        .info .role,
+        .header #down i{
+            color: rgb(191,199,216);
+        }
+        .header .info .name{
+            color: rgb(35,153,241);
+        }
+        /* 设置查询框样式 */
+        .serch{
+            position: relative;
+            height: 70px;
+            width: 400px;
+            border-right: 1px solid rgb(230,233,236);
+            float: left;
+            /* 设置输入框居中 */
+            text-align: center;
+            /* background-color: white; */
+        }
+        /* 设置输入框样式 */
+        .serch input{
+            margin-top: 15px;
+            width: 340px;
+            height: 35px;
+            border: 1px solid rgb(230,233,236);
+            padding-left: 10px;
+        }
+        /* 设置放大镜样式 */
+        .serch i{
+            position: absolute;
+            right: 35px;
+            top: calc(50% - 10px);
+            font-size: 20px;
+            color: rgb(168,177,192);
+            cursor:pointer;
+        }
+        /* 设置右侧详细信息头 */
+        .detailhead{
+            margin-left: 400px;
+            height: 70px;
+            width: calc(100% - 400px);
+            min-width: 440px;
+        }
+        /* 设置姓名样式 */
+        #detail-name{
+            margin-top: 20px;
+            margin-left: 20px;
+            line-height: 30px;
+            float: left;
+        }
+        /* 设置小圆点 */
+        .point{
+            display: none;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgb(27,185,52);
+        }
+        .active{
+            display: inline-block;
+        }
+        .active-color{
+            color: rgb(35,153,241);
+        }
+        .operatebox{
+            /* position: fixed;
+            right: 10px; */
+        }
+        
+        /* 设置翻页容器 */
+        .pageup-down
+        {
+            border: 1px solid rgb(206,208,218);
+            border-radius: 4px;
+            overflow: hidden;
+            width: 71px;
+        }
+        /* 设置小三角容器 */
+        .wrapper{
+            float: left;
+            width: 35px;
+            height: 30px;
+            background: -webkit-linear-gradient(bottom, rgb(242,244,247), white);
+        }
+        /* 设置三角之间的分隔符 */
+        .sep{
+            float: left;
+            height: 28px;
+            border: 1px solid rgb(206,208,218);
+            border-right: none;
+        }
+        .wrapper:first-child{
+            border-right: none;
+        }
+        /* 设置小三角样式 */
+        .last{
+            margin-top: 8px;
+            margin-right: 17px;
+            border-right: 8px solid rgb(206,208,218);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+        .next{
+            margin-top: 8px;
+            margin-left: 17px;
+            border-left: 8px solid rgb(206,208,218);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+
+        .page-count{
+            width: 55px;
+            font-size: 15px;
+        }
+        /* 设置操作框容器边框宽度 */
+        .operate{            
+            border: 1px solid rgb(206,208,218);
+            border-radius: 4px;
+            overflow: hidden;
+            width: 105px;
+        }
+        .operate div,
+        .operate a{
+            float: left;
+            margin: 0 3px;
+        }
+        .operate a{
+            display: inline-block;
+            color: rgb(159,169,186);
+        }
+        .sep-outer{
+            border: 1px solid rgb(240,241,244);
+            border-right: none;
+        }
+        .pageup-down,
+        .page-count,
+        .operate,
+        .sep-outer{
+            margin-top: 20px;
+            margin-right: 15px;
+            height: 30px;
+            line-height: 30px;
+            float: right;
+        }
+        
+        /* 设置消息列表容器样式 */
+        .message .list{
+            width: 400px;
+            border-right: 1px solid rgb(230,233,236);
+            float: left;
+            margin-top: 150px;
+            overflow: hidden;
+            /* margin: 0; */
+        }
+        /* 设置消息列表ul样式 */
+        .list{
+            /* padding: 0 20px 20px; */
+        }
+        /* 设置消息列表样式 */
+        .list li{
+            height: 130px;
+            width: 100%;
+            list-style: none;
+            border-right: 1px solid rgb(230,233,236);
+            border-bottom: 1px solid rgb(230,233,236);
+            padding: 0;
+            overflow: hidden;
+        }
+        .list-head{
+            line-height: 50px;
+            margin: 12px 20px 12px 20px;
+            overflow: hidden;
+        }
+        .list-head .point{
+            margin-right: 10px;
+        }
+        .list-head .info{
+            margin-top: 5px;
+        }
+        .info .name {
+            /* color: black; */
+        }
+        .shortcut{
+            margin: 0 20px;
+            height: 40px;
+            text-overflow: -o-ellipsis-lastline;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .headimg2{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-image: url(./img/songjiahead.jpg);
+            background-size: 50px;
+            margin-right: 20px;
+        }
+
+        .msg-count{
+            position: relative;
+            /* width: 100%; */
+            left: 350px;
+            top: -30px;
+            background-color: red;
+        }
+        /* 设置右侧容器样式 */
+        .detail{
+            width: calc(100% - 401px);
+            /* margin-left: 401px; */
+            margin-top: 150px;
+            /* background-color: blue; */
+        }
+        /* 设置右侧详细信息内容区 */
+        .detailbody{
+            margin-top: 20px;
+            width: 100%;
+            list-style: none;
+            /* background-color: red; */
+        }
+        .detailbody .headpos{
+            margin-left: 20px;
+        }
+        .detailbody .message-detail{
+            width: calc(100% - 90px);
+            margin-left: 20px;
+            margin-bottom: 20px;
+            /* background-color: red; */
+            /* z-index: 10; */
+        }
+        .message-detail p{
+            color: rgb(91,96,107);
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="clearfix wrapper"> -->
+        <div class="sidebar">
+            <div class="iconwrapper">
+                <a href="javascript:;" class="firsticon"><i class="fas fa-paper-plane"></i></a>
+                <a href="javascript:;" class="secondicon"><i class="fas fa-rocket"></i></a>
+                <a href="javascript:;" class="thirdicon"><i class="fas fa-gamepad"></i></a>
+                <a href="javascript:;" class="lasticon"><i class="fas fa-plus"></i></a>
+            </div>
+            <div class="sidebarfooter">
+                <a href="javascript:;"><i class="fas fa-th-large"></i></a>
+                <a href="javascript:;"><i class="fas fa-cog"></i></a>
+                
+            </div>
+        </div>
+        <div class="menubox">
+            <div class="clearfix menu">
+                <p>MENU<a class="menuicon" href="javascript:;"><i  class="fas fa-cog"></i></a></p>
+                
+            </div>
+            <ul class="menu listbox">
+                <li class="menulist"><a href="javascript:;">Overview</a></li>
+                <li class="menulist"><a href="javascript:;">Sales<span class="salesnum">32</span></a></li>
+                <li class="menulist"><a href="javascript:;">Your Staff</a></li>
+                <li class="menulist"><a href="javascript:;">Analytics & Targeting</a></li>
+                <li class="menulist"><a href="javascript:;">What's New</a></li>
+            </ul>
+            <div class="clearfix menu">
+                <p>YOUR PRODUCTS<a class="menuicon" href="javascript:;"><i  class="fas fa-cog"></i></a></p>
+                
+            </div>
+            <ul class="menu listbox">
+                <li class="menulist"><a href="javascript:;">Overview</a></li>
+                <li class="menulist"><a href="javascript:;">Analytics & Targeting</a></li>
+                <li class="menulist"><a href="javascript:;">What's New</a></li>
+            </ul>
+            <div class="clearfix menu">
+                <p>DASHBOARD<a class="menuicon" href="javascript:;"><i  class="fas fa-cog"></i></a></p>
+                
+            </div>
+            <ul class="menu listbox">
+                <li class="menulist active"><a href="javascript:;">Messages</a></li>
+                <li class="menulist"><a href="javascript:;">Analytics & Targeting</a></li>
+            </ul>
+            <div class="menufooter">
+                <span>Goals</span><span class="total">$3200</span><span class="dilver">/</span><span class="current">$580</span>
+                <div id="full">
+                    <div id="finish"></div>
+                </div>
+            </div>
+        </div>
+        <div class="contentwraper clearfix">
+            <div class="header">
+                <span class="title">Messages</span>
+                <div id="down"><i class="fas fa-angle-down"></i></div>
+                <div class="info"><p class="name">Jordan J.</p><p class="role">Administrator</p></div>
+                <div class="headimg"></div>
+            </div>
+            <div class="serch">
+                <input type="text" name="serch" id="" placeholder="search">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="detailhead">
+                <div id="detail-name">
+                    <span>Song Jia</span>
+                    <span class="point active"></span>
+                </div>
+                
+                    <div class="pageup-down clearfix">
+                        <div class="wrapper">
+                            <div class="last"></div>
+                        </div>
+                        
+                        <div class="sep"></div>
+                        <div class="wrapper">
+                            <div class="next"></div>
+                        </div>
+                    </div>
+                    <div class="page-count">
+                        <span class="current-page">1</span>&nbsp;of&nbsp;<span class="total-page">28</span>
+                    </div>
+                    <div class="sep-outer"></div>
+                    <div class="operate">
+                        <a href="javascript:;">
+                            <div class="user-plus">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                        </a>
+                        <div class="sep"></div>
+                        <a href="javascript:;">
+                            <div class="user-plus">
+                                <i class="fas fa-download"></i>
+                            </div>
+                        </a>
+                        <div class="sep"></div>
+                        <a href="javascript:;">
+                            <div class="user-plus">
+                                <i class="fas fa-trash-alt"></i>
+                            </div>
+                        </a>
+                        
+                    </div>
+
+                
+
+            </div>
+        </div>
+        <div class="message clearfix">
+
+            <ul class="list">
+                <li>
+                    <div class="list-head">
+                        <div class="headimg2 left"></div>
+                        <div class="info left"><p class="name active-color"><span class="point active"></span>Songjia J.</p><p class="role ">Administrator</p></div>
+                        <div class="recv-time right">3m</div>
+                    </div>
+                    <div class="shortcut left">Youth is not a time of life; it is a state of mind. It is not a matter of rosy cheeks, red lips and supple knees. It is a matter of the will, a quality of the imagination, vigor of the emotions; it is the freshness of the deep spring of life.</div>
+                    <div class="msg-count left">333</div>
+                </li>
+                <li>
+                    <div class="list-head">
+                        <div class="headimg2 left"></div>
+                        <div class="info left"><p class="name"><span class="point"></span>Songjia J.</p><p class="role">Administrator</p></div>
+                        <div class="recv-time right">3m</div>
+                    </div>
+                    <div class="shortcut">Youth is not a time of life; it is a state of mind. It is not a matter of rosy cheeks, red lips and supple knees. It is a matter of the will, a quality of the imagination, vigor of the emotions; it is the freshness of the deep spring of life.</div>
+                
+                </li>
+                <li>
+                    <div class="list-head">
+                        <div class="headimg2 left"></div>
+                        <div class="info left"><p class="name"><span class="point"></span>Songjia J.</p><p class="role">Administrator</p></div>
+                        <div class="recv-time right">3m</div>
+                    </div>
+                <div class="shortcut">Youth is not a time of life; it is a state of mind. It is not a matter of rosy cheeks, red lips and supple knees. It is a matter of the will, a quality of the imagination, vigor of the emotions; it is the freshness of the deep spring of life.</div>
+            </li>
+                <li>
+                    <div class="list-head">
+                        <div class="headimg2 left"></div>
+                        <div class="info left"><p class="name"><span class="point"></span>Songjia J.</p><p class="role">Administrator</p></div>
+                        <div class="recv-time right">3m</div>
+                    </div>
+                    <div class="shortcut">Youth is not a time of life; it is a state of mind. It is not a matter of rosy cheeks, red lips and supple knees. It is a matter of the will, a quality of the imagination, vigor of the emotions; it is the freshness of the deep spring of life.</div>
+                
+                </li>
+                
+            </ul>
+
+            <ul class="detail left">
+                <li class="detailbody clearfix">
+                    <div class="headimg headpos left"></div>
+                    <div class="message-detail left">
+                        <h3><span><b>Song Jia</b><span>8:31 AM</span></span></h3>
+                        <p >Youth is not a time of life; it is a state of mind. It is not a matter of rosy cheeks, red lips and supple knees. It is a matter of the will, a quality of the imagination, vigor of the emotions; it is the freshness of the deep spring of life.</p>
+                
+                    </div>
+                    </li>
+                <li class="detailbody clearfix">
+                    <div class="headimg headpos left"></div>
+                    <div class="message-detail left">
+                        <h3><span><b>Song Jia</b><span>8:31 AM</span></span></h3>
+                        <p >Youth is not a time of life; it is a state of mind. It is not a matter of rosy cheeks, red lips and supple knees. It is a matter of the will, a quality of the imagination, vigor of the emotions; it is the freshness of the deep spring of life.</p>
+                
+                    </div>
+                </li>
+                <hr title="yesteday">
+                <li class="detailbody clearfix">
+                    <div class="headimg headpos left"></div>
+                    <div class="message-detail left">
+                        <h3><span><b>Song Jia</b><span>8:31 AM</span></span></h3>
+                        <p >Youth is not a time of life; it is a state of mind. It is not a matter of rosy cheeks, red lips and supple knees. It is a matter of the will, a quality of the imagination, vigor of the emotions; it is the freshness of the deep spring of life.</p>
+                
+                    </div>
+                </li>
+                <li class="detailbody clearfix">
+                    <div class="headimg headpos left"></div>
+                    <div class="message-detail left">
+                        <h3><span><b>Song Jia</b><span>8:31 AM</span></span></h3>
+                        <p >Youth is not a time of life; it is a state of mind. It is not a matter of rosy cheeks, red lips and supple knees. It is a matter of the will, a quality of the imagination, vigor of the emotions; it is the freshness of the deep spring of life.</p>
+                
+                    </div>
+                </li>
+            </ul>
+        </div>
+    <!-- </div> -->
+    
+</body>
+</html>

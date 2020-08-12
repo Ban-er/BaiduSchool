@@ -1,0 +1,14 @@
+.titlebox{
+    background-color: rgb(101,164,250);
+    float: left;
+    width: 195px;
+    height: 830px;
+    color: white;
+    text-align: center;
+    margin-right: 30px;
+    padding-top: 30px;
+}
+
+.contentbox{
+    padding-top: 10px;
+}
